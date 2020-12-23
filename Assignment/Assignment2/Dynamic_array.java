@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Arrays;
 abstract class ADT_List
 
 {
@@ -71,10 +71,9 @@ abstract class ADT_List
 		 }
 
 		 
-		 else
-		 {
+		 else if(index>0 )
+		 
 		 	throw new ArrayIndexOutOfBoundsException(" SORRY YOUR INDEX IS  OUT OF BOUND:");
-		 }
 	 }	
 
     public void remove()
@@ -116,18 +115,13 @@ abstract class ADT_List
       {
       	if (count > 0)
       	{
-      		for(int i = 0 ; i<size ; i++)
+      		for(int i = 0 ; i<size ; i++) // loop through the array
       		{
-      			if ( index == i)
+      			if ( index == i) // check the index of array 
       			{
-      			 System.out.println("THE ELEMENT OF YOUR INDEX IS :"+array[index]);
+      			 System.out.println("THE ELEMENT OF YOUR INDEX IS :"+array[index]); // print out the element of the  particular index
       			}
-      // 			else
-  				// {
-      
-      // 			throw new ArrayIndexOutOfBoundsException("NO SUCH ELEMENT IN AN ARRAY:");
-
-  				// }
+    
       		}
       	}
       	
@@ -138,13 +132,13 @@ abstract class ADT_List
 
      public int indexOf(int element)
       {
-      	if (count >0)
+      	if (count >0) // check the presence of element 
       	{
-      		for(int i = 0 ; i<size; i++)
+      		for(int i = 0 ; i<size; i++) // loop through te array 
       		{
-      			if (array [i] == element)
+      			if (array [i] == element) // check the index of the element 
       			{
-      				System.out.println("THE INDEX OF THE ELEMENT IS:"+i);
+      				System.out.println("THE INDEX OF THE ELEMENT IS:"+i); // print out the index of element;
       			}
       			else
       			{
@@ -159,11 +153,13 @@ abstract class ADT_List
 
      public int[] sublist(int startIndex , int endindex)	
      {
-     	if (count >0)
+     	if (count >0) // check whether there is element in an array or not
      	{
-     		for( int i = startIndex ; i < endindex; i++)
+        System.out.println("SUBLIST ARE:"); 
+
+     		for( int i = startIndex ; i < endindex; i++) // loop through  with your given index and print out at the value excluding the last value
      		{
-     			System.out.println("SUBLIST:"+ array[i]);
+     			System.out.println(array[i]);
      		}
      	}
      	else
@@ -191,21 +187,22 @@ abstract class ADT_List
 
   }
 
-  public boolean contain(int element)
+  public boolean contain(int element) // check whether it contain element in an array  or not
       {
       	if ( count > 0)
       	{
       		for(int i = 0 ; i<size ; i++)
       		{
-      			if ( array [i]==element)
+      			if ( array [i]==element) 
       			{
       				System.out.println("THERE EXIST AN ELEMENT IN AN ARRAY:");
       			}
+            
 
       		}
       	}
 
-      	return true;
+      	return false;
      } 	
 
 
@@ -237,33 +234,30 @@ abstract class ADT_List
   {
   	Dynamic_array obj = new Dynamic_array();
 
-  	    obj.addElement(1);
+
+  	obj.addElement(1);
 	 	obj.addElement(2);
 	 	// obj.addElement(3);
 	 	// obj.addElement(4);
 	 	 obj.addElement(5);
 	 	// obj.addElement(6);
 	 	obj.addElement(7);
-	 	// obj.addElement(31);
-	 	// obj.addElement(42);
+	 	obj.addElement(31);
 	 	 obj.addElement(45);
-   //      obj.addElement_At(3,2);
-   //    //  obj.addElement_At(-1,3);
-   //      obj.remove();
-   //     // obj.removeAt(5);
-       System.out.println(obj.get(1)) ;
+      obj.addElement_At(3,2);
+   // obj.addElement_At(-1,3);
+     obj.remove();
+    obj.removeAt(5);
+    System.out.println(obj.get(1)) ;
 
-       System.out.println(obj.indexOf(5)) ;
-   //      //obj.get(100);
-   //      obj.sublist(1,4);
-        obj.contain(7);
-	 
-		System.out.println(obj.toString());
-		for(int i=0 ;i<obj.size ;i++)
-		{
-			System.out.println("ARRAY:"+obj.array[i]);
-		}
+    System.out.println(obj.sublist(1,4));
+    obj.contain(7);
+	  
+		System.out.println(Arrays.toString(obj.array));
 
-	  	System.out.println("FINALLY SUCCESSFUL:");
+    System.out.println("SIZE:"+obj.size);
+    System.out.println(" TOTAL ELEMENT:"+obj.count);
+
+
   }
 }
